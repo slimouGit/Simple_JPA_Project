@@ -1,8 +1,11 @@
 package net.slimou.jpa.demo;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 
 public class JpaDemo {
 	 
@@ -32,5 +35,17 @@ public class JpaDemo {
  
         entityMgr.clear();
         System.out.println("Record Successfully Inserted In The Database");
+        
+        List<Farmer> farmer = findById(101);
+        System.out.println(farmer.get(0).getName());
     }
+
+	private static List<Farmer> findById(int id) {
+		EntityManager em = getEntityManager();
+		return em.createQuery(
+		        "SELECT f FROM Farmer f WHERE f.id LIKE ?1")
+		        .setParameter(1, id)		        
+		        .getResultList();
+		
+	}
 }
