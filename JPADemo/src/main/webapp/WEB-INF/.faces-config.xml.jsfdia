@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="viewscoped::#lifecycle#viewscoped.xhtml"
+    NAME="output" PATH="/lifecycle/viewscoped.xhtml"
+    TARGET="rules:#lifecycle#viewscoped.xhtml" TITLE="viewscoped" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="requestscoped::#lifecycle#requestscoped.xhtml" NAME="output1"
+    PATH="/lifecycle/requestscoped.xhtml"
+    TARGET="rules:#lifecycle#requestscoped.xhtml" TITLE="requestscoped" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="applicationscoped::#lifecycle#applicationscoped.xhtml"
+    NAME="output2" PATH="/lifecycle/applicationscoped.xhtml"
+    TARGET="rules:#lifecycle#applicationscoped.xhtml"
+    TITLE="applicationscoped" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="sessionscoped::#lifecycle#sessionscoped.xhtml" NAME="output3"
+    PATH="/lifecycle/sessionscoped.xhtml"
+    TARGET="rules:#lifecycle#sessionscoped.xhtml" TITLE="sessionscoped" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="withoutscope::#lifecycle#withoutscope.xhtml"
+    NAME="output4" PATH="/lifecycle/withoutscope.xhtml"
+    TARGET="rules:#lifecycle#withoutscope.xhtml" TITLE="withoutscope" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#lifecycle#viewscoped.xhtml"
+  PATH="/lifecycle/viewscoped.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#lifecycle#sessionscoped.xhtml"
+  PATH="/lifecycle/sessionscoped.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#lifecycle#applicationscoped.xhtml"
+  PATH="/lifecycle/applicationscoped.xhtml" SHAPE="304,385,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#lifecycle#withoutscope.xhtml"
+  PATH="/lifecycle/withoutscope.xhtml" SHAPE="304,609,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#lifecycle#requestscoped.xhtml"
+  PATH="/lifecycle/requestscoped.xhtml" SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

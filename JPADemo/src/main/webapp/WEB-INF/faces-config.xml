@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<application>
+		<message-bundle>resources.application</message-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+		</locale-config>
+	</application>
+	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>viewscoped</from-outcome>
+			<to-view-id>/lifecycle/viewscoped.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>requestscoped</from-outcome>
+			<to-view-id>/lifecycle/requestscoped.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>applicationscoped</from-outcome>
+			<to-view-id>/lifecycle/applicationscoped.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>sessionscoped</from-outcome>
+			<to-view-id>/lifecycle/sessionscoped.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>withoutscope</from-outcome>
+			<to-view-id>/lifecycle/withoutscope.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>
