@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import net.slimou.jpa.demo.Animal.Type;
+
 public class PopulateData {
 
 	private static final EntityManagerFactory emFactoryObj;
@@ -23,9 +25,19 @@ public class PopulateData {
 
 	public static void main(String[] args) {
 		createFarmer("Max Mustermann", "Feldberg Vally");
-		findOneFarmer(101);
+		findOneFarmer(1);
 		findAllFarmers();
 		findFarmerByName("Mus");
+		createAnimal("Cow");
+	}
+
+	private static void createAnimal(String species) {
+		em.getTransaction().begin();
+		Animal animal = new Animal();
+		animal.setSpecies(Type.COW);
+		em.persist(animal);
+		em.getTransaction().commit();
+		em.clear();
 	}
 
 	private static void createFarmer(String name, String village) {
