@@ -28,12 +28,13 @@ public class PopulateData {
 		em.getTransaction().begin();
 		
 		Farmer farmer1 = new Farmer();
-		farmer1.setName("Pumuckel Da Vinci");
-		farmer1.setVillage("Bengal-Anatolien");
+		farmer1.setForename("Horst");
+		farmer1.setSurname("Bembel");
 		em.persist(farmer1);
 		
 		Farm farm1 = new Farm();
 		farm1.setFarmer(farmer1);
+		farm1.setName("Ebbelwoi Palace");
 		em.persist(farm1);
 
 		Animal a1 = new Animal();
@@ -45,14 +46,30 @@ public class PopulateData {
 		a2.setSpecies(Type.PORK);
 		a2.setFarm(farm1);
 		em.persist(a2);
+		
+		Animal a3 = new Animal();
+		a3.setSpecies(Type.COW);
+		a3.setFarm(farm1);
+		em.persist(a3);
 
-		farm1.setAnimals(Arrays.asList(a1, a2));
+		farm1.setAnimals(Arrays.asList(a1, a2, a3));
 		farmer1.setFarm(farm1);
 		em.persist(farm1);
 
 		em.getTransaction().commit();
 		em.clear();
+		
+		printFarm(farm1);
 
+	}
+
+	private static void printFarm(Farm farm) {
+		System.out.println("Farm:\t" + farm.getName());
+		System.out.println("Farmer:\t" + farm.getFarmer().getForename() + " " + farm.getFarmer().getSurname());
+		for(Animal animal:farm.getAnimals()) {
+			System.out.println("Animal:\t"+ animal.getSpecies());
+		}
+		
 	}
 
 	private static Animal createAnimal(Type species, Farm farm) {
@@ -66,11 +83,11 @@ public class PopulateData {
 		return animal;
 	}
 
-	private static Farmer createFarmer(String name, String village) {
+	private static Farmer createFarmer(String forename, String surname) {
 		em.getTransaction().begin();
 		Farmer farmer = new Farmer();
-		farmer.setName(name);
-		farmer.setVillage(village);
+		farmer.setForename(forename);
+		farmer.setSurname(surname);
 		em.persist(farmer);
 		em.getTransaction().commit();
 		em.clear();
@@ -79,19 +96,19 @@ public class PopulateData {
 
 	private static void findOneFarmer(int id) {
 		List<Farmer> farmer = findById(id);
-		System.out.println(farmer.get(0).getName());
+		System.out.println(farmer.get(0).getForename());
 	}
 
 	private static void findAllFarmers() {
 		List<Farmer> farmers = findAll();
 		for (Farmer f : farmers) {
-			System.out.println(f.getName());
+			System.out.println(f.getForename());
 		}
 	}
 
-	private static void findFarmerByName(String name) {
-		List<Farmer> farmer = findByName(name);
-		System.out.println(farmer.get(0).getVillage());
+	private static void findFarmerByName(String surname) {
+		List<Farmer> farmer = findByName(surname);
+		System.out.println(farmer.get(0).getSurname());
 	}
 
 	/*-----QUERIES----------*/
@@ -106,8 +123,8 @@ public class PopulateData {
 		return resultList;
 	}
 
-	private static List<Farmer> findByName(String name) {
-		String sqlQuery = "SELECT f.* FROM Farmer f WHERE f.name like '%" + name + "%'";
+	private static List<Farmer> findByName(String surname) {
+		String sqlQuery = "SELECT f.* FROM Farmer f WHERE f.surname like '%" + surname + "%'";
 		List<Farmer> resultList = em.createNativeQuery(sqlQuery, Farmer.class).getResultList();
 		return resultList;
 	}

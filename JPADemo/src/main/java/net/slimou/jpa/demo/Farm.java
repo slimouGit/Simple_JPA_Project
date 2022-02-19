@@ -27,6 +27,9 @@ public class Farm {
 	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "farmer")
 	private Farmer farmer;
+	
+	@Column(name="name")
+    private String name;
 
 	public Integer getId() {
 		return id;
@@ -51,5 +54,15 @@ public class Farm {
 	public void setFarmer(Farmer farmer) {
 		this.farmer = farmer;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 
 }

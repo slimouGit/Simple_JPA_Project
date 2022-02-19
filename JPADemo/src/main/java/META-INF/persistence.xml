@@ -7,7 +7,7 @@
         <class>net.slimou.jpa.demo.Animal</class>    
         <class>net.slimou.jpa.demo.Farm</class> 
         <properties>
-        	<property name="eclipselink.weaving" value="static"/>
+        	
             <!-- Configuring The Database Connection Details -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/farmville" />

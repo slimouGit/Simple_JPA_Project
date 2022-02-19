@@ -18,11 +18,11 @@ public class Farmer {
     @GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
     private Integer id;
  
-    @Column(name="name")
-    private String name;
+    @Column(name="forename")
+    private String forename;
  
-    @Column(name="village")
-    private String village;
+    @Column(name="surname")
+    private String surname;
     
     @OneToOne(mappedBy = "farmer", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
@@ -36,21 +36,21 @@ public class Farmer {
 		this.id = id;
 	}
 
-	public String getName() {
-        return name;
-    }
- 
-    public void setName(String name) {
-        this.name = name;
-    }
- 
-    public String getVillage() {
-        return village;
-    }
- 
-    public void setVillage(String village) {
-        this.village = village;
-    }
+	public String getForename() {
+		return forename;
+	}
+
+	public void setForename(String forename) {
+		this.forename = forename;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
 
 	public Farm getFarm() {
 		return farm;
