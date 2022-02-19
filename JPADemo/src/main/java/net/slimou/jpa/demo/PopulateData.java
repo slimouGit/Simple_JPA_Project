@@ -76,13 +76,13 @@ public class PopulateData {
 	private static List<Farmer> findAll() {
 		String sqlQuery = "SELECT f.* FROM Farmer f";
 		List<Farmer> resultList = em.createNativeQuery(sqlQuery, Farmer.class).getResultList();
-		return resultList.stream().collect(Collectors.toList());
+		return resultList;
 	}
 
 	private static List<Farmer> findByName(String name) {
 		String sqlQuery = "SELECT f.* FROM Farmer f WHERE f.name like '%" + name + "%'";
 		List<Farmer> resultList = em.createNativeQuery(sqlQuery, Farmer.class).getResultList();
-		return resultList.stream().collect(Collectors.toList());
+		return resultList;
 	}
 		
 	
