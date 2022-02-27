@@ -2,7 +2,6 @@ package net.slimou.jpa.demo;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
